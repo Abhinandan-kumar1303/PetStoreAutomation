@@ -1,29 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<Configration status="WARN">
-
-<Properties>
+<Configuration status="WARN">
+    <Properties>
         <Property name="basePath">./logs</Property>
     </Properties>
 
-
-  <Appenders>
-     <Console name="Console" target="SYSTEM_OUT">
-        <patternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
-     </Console>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <patternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
      
-        <RollingFile name="File" fileName="${basePath}/>automation.log" filePattern="${basePath}/automation-%d{yyyy.mm.dd.HH.mm.ss">'
-	   <patternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>	
-		<SizBasedTriggeringPolicy size="50000" />
-	 </RollingFile>
-
-
-  </Appenders>
+        <RollingFile name="File" fileName="${basePath}/automation.log" filePattern="${basePath}/automation-%d{yyyy.MM.dd.HH.mm.ss}">
+            <patternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <SizeBasedTriggeringPolicy size="50000"/>
+        </RollingFile>
+    </Appenders>
   
-  <Loggers>
-	 <Root level="debug"><!-- Here you can use multiple log levels All < Trace < Debug < Info < Warn < Error < Fata
-	    <AppenderRef ref="File"/>  <! <AppenderRef ref="Console"/>
-	 </Root>
-  </Loggers>
-
-</Configration>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="File"/>
+        </Root>
+    </Loggers>
+</Configuration>
